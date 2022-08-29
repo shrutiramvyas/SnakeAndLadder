@@ -1,5 +1,6 @@
 class SnakeLadder {
     public int position=0;
+    public int count_position=0;
     public static final int max_position =100;
     public void displayposition(){
         System.out.println("Position is " +position);
@@ -13,7 +14,7 @@ class SnakeLadder {
     public int choice() {
         while (position < max_position) {
             int ch = (int) Math.floor(Math.random() * 10 % 3);
-
+            count_position++;
             switch (ch) {
                 case 0:
                     System.out.println("nothing comes");
@@ -45,9 +46,11 @@ class SnakeLadder {
                     break;
             }
         }
+        System.out.println("Number Of times dice was played to win the game : "+ count_position);
         displayposition();
         return position;
     }
+
 }
 
 class MainClass{
