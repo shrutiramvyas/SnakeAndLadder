@@ -22,8 +22,15 @@ class SnakeLadder {
                     break;
                 case 1:
                     System.out.println("Ladder comes");
-                    position += dice();
-                    displayposition();
+                    position+=dice();
+                    if(position >= max_position) {
+                        position = max_position;
+                        displayposition();
+                    }
+                    else{
+                        position =position;
+                        displayposition();
+                    }
                     break;
                 case 2:
                     System.out.println("Snake Comes");
