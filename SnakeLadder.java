@@ -1,5 +1,12 @@
+class SnakeLadder {
+    public int position=0;
+    public int displayposition(){
+        return position;
+    }
+}
 class MainClass{
     public static void main(String[] args) {
-        System.out.println("Welcome to the world of Snake and Ladder game");
+        SnakeLadder sl = new SnakeLadder();
+        System.out.println("Position is:"+sl.displayposition());
     }
 }
