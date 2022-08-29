@@ -1,33 +1,42 @@
 class SnakeLadder {
     public int position=0;
+    public static final int max_position =100;
     public void displayposition(){
         System.out.println("Position is " +position);
+        System.out.println();
     }
     public int dice(){
         int roll=(int)Math.floor(Math.random()*10%6+1);
         System.out.println("Roll Dice Value : "+roll);
         return roll;
     }
-    public int choice(){
-        int ch=(int)Math.floor(Math.random()*10%3);
-        switch(ch){
-            case 0:
-                System.out.println("nothing comes");
-                position=position;
-                break;
-            case 1:
-                System.out.println("Ladder comes");
-                position+=dice();
-                break;
-            case 2:
-                System.out.println("Snake Comes");
-                if (position==0){
-                    position=0;
-                }
-                else {
-                    position -= dice();
-                }
-                break;
+    public int choice() {
+        while (position < max_position) {
+            int ch = (int) Math.floor(Math.random() * 10 % 3);
+
+            switch (ch) {
+                case 0:
+                    System.out.println("nothing comes");
+                    position = position;
+                    displayposition();
+                    break;
+                case 1:
+                    System.out.println("Ladder comes");
+                    position += dice();
+                    displayposition();
+                    break;
+                case 2:
+                    System.out.println("Snake Comes");
+                    position-=dice();
+                    if (position <= 0) {
+                        position = 0;
+                        displayposition();
+                    } else {
+                        position =position;
+                    }
+                    displayposition();
+                    break;
+            }
         }
         displayposition();
         return position;
